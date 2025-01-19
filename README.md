@@ -1,5 +1,4 @@
-# Guess ME
-
+# Guess ME  🎮🎰
 Welcome to the **Guess ME** game! This is a simple and fun game where you test your luck to match numbers with the computer. 
 
 
