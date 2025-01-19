@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <title>Guess Me</title>
+    <link rel="shortcut icon" href="robo-removebg-preview.png" type="image/x-icon">
+    <style>
+        #header{
+            margin-top: 60px;
+        }
+        #container{
+            margin-top: 0;
+            margin-left:40% ;
+            height: 300px;
+            width: 360px;
+            background-color: #90ADA9;
+            text-align: center;
+            padding-top: 50px;
+            padding-left: 10px;
+            padding-right: 10px;
+            border-radius: 5px;
+        }
+        body{
+            user-select: none;
+            background-color:rgb(32, 31, 31);
+        }
+        #btn{
+            background-color:#9B6922;
+            border: none;
+            border-radius: 10px;
+            width: 70px;
+            padding: 4px;
+           
+        }
+        input{
+            padding: 4px;
+        }
+        #btn:hover{
+            background-color: #C7152B;
+            cursor: pointer;
+            
+        }
+        img{
+            display: block;
+            margin: 0 auto;
+            margin-left: 45%;
+        }
+            @media (max-width: 780px) {
+
+            #container{
+                margin-left:20px ;
+                width: 250px;
+            }
+            img{
+                margin-left: 50px;
+            }
+        }
+        @media (max-width: 600px) {
+          input{
+            margin-bottom:5px;
+            
+          }
+            #header{
+              margin-top:0px;
+              margin-left:60px;}
+            
+            #container{
+                padding-left:2px;
+                padding-right: 2px;
+                margin-left:05px ;
+                width: 250px;
+            }
+            img{
+                margin-left: 40px;
+            }
+}
+    </style>
+</head>
+<body>
+    <div id="header">
+        <img  src="robo-removebg-preview.png" alt="robo" width="200px" height="200px">
+    <div id="container">
+        <h1 id="title">Guess number from 0 to 9</h1>
+        <h3 id="subTitle"></h3>
+        <input id="input" type="number">
+        <button id="btn" onclick="check()">Check</button>
+        <h2 id="res">Score = 0</h2>
+    </div>
+</div>
+
+</body>
+<script>
+    var score=0;
+    function check(){
+        
+        let computerScore=Math.floor(Math.random()*10);;
+        if(parseInt(document.getElementById("input").value)==computerScore)
+    {
+        score=score+1;
+        document.getElementById("res").textContent=`Score = ${score}`;
+    }
+    else{
+        if(score>0){
+        score=score-1;
+        document.getElementById("res").textContent=`Score = ${score}`;
+        }
+    }
+    document.getElementById("input").value="";
+    if(score>5)
+    {
+        document.getElementById("title").textContent="YOU WON   !!! "
+        document.getElementById("subTitle").textContent="Refresh the page to start a new match"
+        document.getElementById("input").style.display="none";
+        document.getElementById("res").style.display="none";
+        document.getElementById("btn").style.display="none";
+    }
+    }
+    document.onkeydown = function(evt){ 
+            console.log(evt.keyCode);
+            keycode=evt.keyCode;
+            if(keycode==13)
+            {
+                check();
+            }
+        }
+   
+
+</script>
+</html>
